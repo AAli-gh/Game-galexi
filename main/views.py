@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import *
+from .serializers import *
 
-# Create your views here.
+
+
+class Creatuser(viewsets.ModelViewSet):
+    # permission_classes = [IsAdminUser]
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
